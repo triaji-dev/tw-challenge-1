@@ -1,5 +1,14 @@
 @import 'tailwindcss';
 
+@source '../pages';
+
+@theme {
+  --color-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+}
+
 .btn-primary {
   background-color: rgb(194 65 12);
   color: white;
