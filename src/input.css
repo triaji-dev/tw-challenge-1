@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+.btn-primary {
+  background-color: rgb(194 65 12);
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgb(154 52 18);
+  }
+
+  &:focus {
+    outline: 2px solid rgb(194 65 12 / 0.5);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    background-color: rgb(124 45 18);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form - Challenge 2</title>
+    <!-- Tailwind CSS Output -->
+    <link rel="stylesheet" href="../dist/output.css" />
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body
+    class="bg-gray-50 dark:bg-gray-950 min-h-screen py-8 transition-colors duration-200"
+  >
+    <!-- Container -->
+    <div class="max-w-md mx-auto px-4">
+      <!-- Theme Toggle Button -->
+      <div class="flex justify-end mb-6">
+        <button
+          id="themeToggle"
+          class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-gray-700 dark:text-gray-300"
+        >
+          <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+          <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+          <span class="font-medium">Switch Theme</span>
+        </button>
+      </div>
+
+      <!-- Form Card -->
+      <div
+        class="bg-white dark:bg-gray-900 shadow-md p-6 rounded-lg transition-colors duration-200"
+      >
+        <!-- Title -->
+        <h1
+          class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6"
+        >
+          Registration Form
+        </h1>
+
+        <!-- Form -->
+        <form id="registrationForm" class="space-y-5">
+          <!-- Full Name Input -->
+          <div>
+            <label
+              for="fullName"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
+              Full Name <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i data-lucide="user" class="w-5 h-5 text-gray-400"></i>
+              </div>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                required
+                class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-700 focus:border-transparent transition-all duration-200 outline-none"
+                placeholder="Enter your full name"
+              />
+            </div>
+          </div>
+
+          <!-- Email Input -->
+          <div>
+            <label
+              for="email"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
+              Email Address <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i data-lucide="mail" class="w-5 h-5 text-gray-400"></i>
+              </div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-700 focus:border-transparent invalid:border-red-500 invalid:text-red-600 dark:invalid:text-red-400 transition-all duration-200 outline-none peer"
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <p class="mt-1 text-sm text-red-500 hidden peer-invalid:block">
+              Please enter a valid email address
+            </p>
+          </div>
+
+          <!-- Message Textarea -->
+          <div>
+            <label
+              for="message"
+              class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+            >
+              Message
+            </label>
+            <div class="relative">
+              <div class="absolute top-3 left-3 pointer-events-none">
+                <i
+                  data-lucide="message-square"
+                  class="w-5 h-5 text-gray-400"
+                ></i>
+              </div>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-700 focus:border-transparent transition-all duration-200 outline-none resize-none"
+                placeholder="Write your message here..."
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="flex items-start">
+            <div class="flex items-center h-5">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                required
+                class="w-4 h-4 border border-gray-300 dark:border-gray-700 rounded bg-white dark:bg-gray-800 text-orange-700 focus:ring-2 focus:ring-orange-700 focus:ring-offset-0 transition-all duration-200 cursor-pointer"
+              />
+            </div>
+            <div class="ml-3">
+              <label
+                for="terms"
+                class="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer"
+              >
+                I agree to the
+                <a
+                  href="#"
+                  class="text-orange-700 hover:text-orange-800 underline"
+                  >terms and conditions</a
+                >
+                <span class="text-red-500">*</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2">
+            <button
+              type="submit"
+              id="submitBtn"
+              disabled
+              class="btn-primary w-full flex items-center justify-center gap-2"
+            >
+              <i data-lucide="check-circle" class="w-5 h-5"></i>
+              <span>Register Now</span>
+            </button>
+          </div>
+
+          <!-- Success Message -->
+          <div
+            id="successMessage"
+            class="hidden mt-4 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg"
+          >
+            <div class="flex items-center gap-2">
+              <i
+                data-lucide="check-circle-2"
+                class="w-5 h-5 text-green-600 dark:text-green-400"
+              ></i>
+              <p class="text-sm font-medium text-green-800 dark:text-green-300">
+                Registration successful! Thank you for signing up.
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Info Section -->
+      <div
+        class="mt-6 p-4 bg-white dark:bg-gray-900 rounded-lg shadow-sm transition-colors duration-200"
+      >
+        <div class="flex items-start gap-3">
+          <i data-lucide="info" class="w-5 h-5 text-orange-700 mt-0.5"></i>
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <p class="font-medium text-gray-900 dark:text-white mb-1">
+              Form Requirements:
+            </p>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Full name is required</li>
+              <li>Valid email address is required</li>
+              <li>You must agree to terms and conditions</li>
+              <li>Submit button is disabled until all requirements are met</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+      lucide.createIcons();
+    </script>
+
+    <!-- Dark Mode Toggle Script -->
+    <script>
+      const themeToggle = document.getElementById('themeToggle');
+      const htmlElement = document.documentElement;
+
+      // Check for saved theme preference or default to light mode
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      if (currentTheme === 'dark') {
+        htmlElement.classList.add('dark');
+      }
+
+      // Toggle theme
+      themeToggle.addEventListener('click', () => {
+        htmlElement.classList.toggle('dark');
+        const theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+
+        // Reinitialize icons after theme change
+        setTimeout(() => lucide.createIcons(), 50);
+      });
+    </script>
+
+    <!-- Form Validation Script -->
+    <script>
+      const form = document.getElementById('registrationForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const termsCheckbox = document.getElementById('terms');
+      const fullNameInput = document.getElementById('fullName');
+      const emailInput = document.getElementById('email');
+      const successMessage = document.getElementById('successMessage');
+
+      // Function to check if form is valid
+      function checkFormValidity() {
+        const isFullNameValid = fullNameInput.value.trim() !== '';
+        const isEmailValid =
+          emailInput.validity.valid && emailInput.value.trim() !== '';
+        const isTermsChecked = termsCheckbox.checked;
+
+        // Enable/disable submit button
+        submitBtn.disabled = !(
+          isFullNameValid &&
+          isEmailValid &&
+          isTermsChecked
+        );
+      }
+
+      // Add event listeners
+      fullNameInput.addEventListener('input', checkFormValidity);
+      emailInput.addEventListener('input', checkFormValidity);
+      termsCheckbox.addEventListener('change', checkFormValidity);
+
+      // Handle form submission
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        // Show success message
+        successMessage.classList.remove('hidden');
+
+        // Reinitialize icons for success message
+        lucide.createIcons();
+
+        // Reset form after a delay
+        setTimeout(() => {
+          form.reset();
+          successMessage.classList.add('hidden');
+          submitBtn.disabled = true;
+        }, 3000);
+      });
+
+      // Initial check
+      checkFormValidity();
+    </script>
+  </body>
+</html>
